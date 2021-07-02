@@ -46,7 +46,7 @@ main()
 	aritmeticky_priemer(dat,j);
 	
     
-	
+	free(dat);
 		
 	}
 	
