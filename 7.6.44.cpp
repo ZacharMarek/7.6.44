@@ -3,53 +3,41 @@
 
 float aritmeticky_priemer(float *data, int l)
 {
-	float medzisucet =0;
+	float *medzisucet;
+	medzisucet = (float*) malloc(sizeof(float) * l);
 	
+	//medzisucet= malloc(l* sizeof(int));
+
 	for(int m=0;m<l;m++)
 	{
-		if(medzisucet > INT_MAX+medzisucet)
-			printf("pretieklo to");
-		else if(medzisucet < INT_MIN-medzisucet)
-			printf("podtieklo to");
-		else
-			medzisucet+= data[m];
-			printf("%f ",medzisucet);
+		data[m]=rand()%10;
+		medzisucet+= data[m];
 	}
 	float priemer = medzisucet/l;
-	printf("aritmeticky priemer pola velkosti %d s celkovym suctom %f je : %f",l,medzisucet,priemer);
-
+	return priemer;
+free(medzisucet);
 }
 
 main()
 {
+	int j= 10;		
 	
-	int j;
-	float *dat;
-	dat=(float *)malloc(INT_MAX);
-	
-	printf("Zadajte dlzku pola : ");
-	scanf("%d",&j);
-	
-	
-	while(j > max_int)
-	{
-		printf("Maximalna dlzka pola je 518099. Zadajte velkost este raz :");
-		scanf("%d",&j);
-	}			
-	 
-	for(int i=0;i<j;i++)
-	{
-		dat[i]= i+1;
-		
-	}
-	
-	aritmeticky_priemer(dat,j);
-	
+    float *dat;	
     
-	free(dat);
-		
+    dat=(float*) malloc(sizeof(float) * j);
+    
+//	for(int i=0;i<j;i++)
+//	{
+//		dat[i]= rand()%10;
+//	}
+
+	aritmeticky_priemer(dat,j);
+	printf("%.f",aritmeticky_priemer(dat,j));
+
+free(dat);
 	}
-	
-	
+
+
+
 
 
