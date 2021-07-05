@@ -1,41 +1,37 @@
 #include <stdio.h>
 #include <stdlib.h>
+#include <time.h> 
 
 float aritmeticky_priemer(float *data, int l)
 {
-	float *medzisucet;
-	medzisucet = (float*) malloc(sizeof(float) * l);
-	
-	//medzisucet= malloc(l* sizeof(int));
+	float medzisucet = 0.0;
+	float priemer;
+	int m= 0;
 
 	for(int m=0;m<l;m++)
 	{
 		data[m]=rand()%10;
-		medzisucet+= data[m];
+		medzisucet = ((medzisucet*(m))+data[m])/(m+1);
+		medzisucet = medzisucet;
 	}
-	float priemer = medzisucet/l;
-	return priemer;
-free(medzisucet);
+	
+	
+	return medzisucet;
 }
 
 main()
 {
-	int j= 10;		
-	
+	srand(time(0));
+	int j= 3;		
     float *dat;	
     
     dat=(float*) malloc(sizeof(float) * j);
-    
-//	for(int i=0;i<j;i++)
-//	{
-//		dat[i]= rand()%10;
-//	}
 
-	aritmeticky_priemer(dat,j);
-	printf("%.f",aritmeticky_priemer(dat,j));
+	printf(" priemer = %f",aritmeticky_priemer(dat,j));
 
-free(dat);
+	free(dat);
 	}
+
 
 
 
